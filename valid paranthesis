@@ -1,0 +1,10 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        paranthesis={'(':')','{':'}','[':']'}
+        stack=[]
+        for i in s:
+            if i in paranthesis:
+                stack.append(i)
+            elif len(stack)==0 or i!=paranthesis[stack.pop()]:
+                return False
+        return len(stack)==0
